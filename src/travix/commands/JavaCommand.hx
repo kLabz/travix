@@ -5,16 +5,16 @@ import tink.cli.Rest;
 using sys.FileSystem;
 
 class JavaCommand extends Command {
-  
+
   public function install() {
-    
+
   }
 
   public function buildAndRun(rest:Rest<String>) {
     var main = Travix.getMainClassLocalName();
-    
+
     installLib('hxjava');
-    
+
     build('java', ['-java', 'bin/java'].concat(rest), function () {
       if('bin/java/.buckconfig'.exists()) {
         withCwd('bin/java', function() {
